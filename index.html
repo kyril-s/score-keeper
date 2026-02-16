@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Keeper</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bars bars-left" id="barsA"></div>
+    <div class="bars bars-right" id="barsB"></div>
+
+    <h1>Score Keeper</h1>
+
+    <div class="teams">
+        <div class="team">
+            <h2>Team A</h2>
+            <div class="team-body">
+                <div class="score" id="scoreA">0</div>
+                <div class="buttons">
+                    <button onclick="increment('A')">+</button>
+                    <button onclick="decrement('A')">-</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="team">
+            <h2>Team B</h2>
+            <div class="team-body">
+                <div class="score" id="scoreB">0</div>
+                <div class="buttons">
+                    <button onclick="increment('B')">+</button>
+                    <button onclick="decrement('B')">-</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="arena">
+        <canvas id="arenaCanvas" width="170" height="90"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
