@@ -9,12 +9,11 @@
 <body>
     <div class="bars bars-left" id="barsA"></div>
     <div class="bars bars-right" id="barsB"></div>
-
     <h1>Score Keeper</h1>
 
     <div class="teams">
         <div class="team">
-            <h2>Team A</h2>
+            <h2 id="nameA" onclick="renameTeam('A')">Team A</h2>
             <div class="team-body">
                 <div class="score" id="scoreA">0</div>
                 <div class="buttons">
@@ -25,7 +24,7 @@
         </div>
 
         <div class="team">
-            <h2>Team B</h2>
+            <h2 id="nameB" onclick="renameTeam('B')">Team B</h2>
             <div class="team-body">
                 <div class="score" id="scoreB">0</div>
                 <div class="buttons">
@@ -35,6 +34,8 @@
             </div>
         </div>
     </div>
+
+    <button class="reset-btn" onclick="resetScores()">Reset Scores</button>
 
     <div class="arena">
         <canvas id="arenaCanvas" width="170" height="90"></canvas>

@@ -3,7 +3,7 @@
 body {
     font-family: 'Press Start 2P', cursive;
     text-align: center;
-    background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(180deg, #54007b, #302b63, #24243e);
     min-height: 100vh;
     margin: 0;
     padding: 20px;
@@ -135,12 +135,18 @@ h1 {
     text-shadow: 0 0 8px rgba(255, 113, 206, 0.6);
     text-transform: uppercase;
     letter-spacing: 3px;
+    cursor: pointer;
+}
+
+.team h2:hover {
+    color: #ffaaee;
+    text-shadow: 0 0 12px rgba(255, 170, 238, 0.8);
 }
 
 .team-body {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
 }
 
 .score {
@@ -152,6 +158,14 @@ h1 {
         0 0 15px rgba(0, 255, 255, 0.3);
     min-width: 2.5ch;
     text-align: center;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.score.winning {
+    color: #44ff88;
+    text-shadow:
+        0 0 8px rgba(68, 255, 136, 0.6),
+        0 0 20px rgba(0, 204, 68, 0.4);
 }
 
 .buttons {
@@ -167,6 +181,7 @@ h1 {
     flex-direction: column-reverse;
     gap: 0.5rem;
     z-index: 10;
+    width: 15%;
 }
 
 .bars-left {
@@ -180,11 +195,17 @@ h1 {
 }
 
 .bar {
-    width: 100px;
-    height: 25px;
+    width: 100%;
+    height: 2rem;
     background: linear-gradient(90deg, #ffaa00, #ffdd00);
     border-radius: 2px;
     box-shadow: 0 0 8px rgba(255, 170, 0, 0.6);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.winning .bar {
+    background: linear-gradient(90deg, #00cc44, #44ff88);
+    box-shadow: 0 0 10px rgba(0, 204, 68, 0.7);
 }
 
 button {
@@ -213,4 +234,24 @@ button:hover {
 button:active {
     background: linear-gradient(180deg, #ff00ff, #8b008b);
     transform: scale(0.95);
+}
+
+.reset-btn {
+    margin-top: 20px;
+    padding: 10px 24px;
+    font-size: 0.7rem;
+    border: 2px solid #ffaa00;
+    background: linear-gradient(180deg, #cc6600, #884400);
+    box-shadow: 0 0 8px rgba(255, 170, 0, 0.4);
+}
+
+.reset-btn:hover {
+    background: linear-gradient(180deg, #ee8800, #aa5500);
+    box-shadow:
+        0 0 15px rgba(255, 170, 0, 0.6),
+        0 0 30px rgba(255, 170, 0, 0.3);
+}
+
+.reset-btn:active {
+    background: linear-gradient(180deg, #ffaa00, #cc6600);
 }

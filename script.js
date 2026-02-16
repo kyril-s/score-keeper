@@ -35,6 +35,54 @@ function updateBars(team) {
     }
 
     barsContainer.innerHTML = barsHTML;
+    updateWinning();
+}
+
+function updateWinning() {
+    let barsA = document.getElementById('barsA');
+    let barsB = document.getElementById('barsB');
+    let scoreElA = document.getElementById('scoreA');
+    let scoreElB = document.getElementById('scoreB');
+
+    barsA.classList.remove('winning');
+    barsB.classList.remove('winning');
+    scoreElA.classList.remove('winning');
+    scoreElB.classList.remove('winning');
+
+    if (scoreA > scoreB) {
+        barsA.classList.add('winning');
+        scoreElA.classList.add('winning');
+    } else if (scoreB > scoreA) {
+        barsB.classList.add('winning');
+        scoreElB.classList.add('winning');
+    }
+}
+
+function resetScores() {
+    scoreA = 0;
+    scoreB = 0;
+    document.getElementById('scoreA').textContent = scoreA;
+    document.getElementById('scoreB').textContent = scoreB;
+    updateBars('A');
+    updateBars('B');
+    saveScores();
+}
+
+function renameTeam(team) {
+    let currentName = document.getElementById('name' + team).textContent;
+    let newName = prompt('Enter new name for ' + currentName + ':', currentName);
+    if (newName !== null && newName.trim() !== '') {
+        document.getElementById('name' + team).textContent = newName.trim();
+        localStorage.setItem('name' + team, newName.trim());
+    }
+}
+
+function loadNames() {
+    let savedA = localStorage.getItem('nameA');
+    let savedB = localStorage.getItem('nameB');
+
+    if (savedA) document.getElementById('nameA').textContent = savedA;
+    if (savedB) document.getElementById('nameB').textContent = savedB;
 }
 
 function saveScores() {
@@ -150,4 +198,5 @@ setInterval(function() {
 }, 400);
 
 loadScores();
+loadNames();
 document.fonts.ready.then(drawArena);
